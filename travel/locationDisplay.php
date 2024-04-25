@@ -179,11 +179,10 @@ if (isset($_GET["destination"])) {
                             <p><b>Cost:</b> <?php echo $row["cost"] ?></p>
                     </p></b>
                 </div>
-
             </div>
             </div>
 
-            <a href="buffer.php" class="buy-now-button">Confirm Booking</a>
+            <a href="buffer.php?cost=<?php echo $row['cost'] ?>" class="buy-now-button">Confirm Booking</a>
             <div class="spacerLarge">.</div> <!-- just a dummy class for creating some space -->
 
             <?php include ("common/footer.php"); ?>

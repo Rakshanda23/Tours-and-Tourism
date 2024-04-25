@@ -33,6 +33,7 @@ if(!isset($_SESSION["username"]))
 				Payment
 				
 			</div>
+            <center><h2> Bill : <?php echo $_GET["cost"] ?></h2></center>
 
     <div class="col-sm-3"></div>
     
