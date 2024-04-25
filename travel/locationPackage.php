@@ -5,7 +5,7 @@ if (isset($_GET["destination"])) {
     $conn = mysqli_connect("localhost", "root", "", "projectmeteor")
         or die("MySQL Connection Error" + mysqli_connect_error());
 
-    $qry = "SELECT * FROM package WHERE name='$dest'";
+    $qry = "SELECT * FROM package WHERE name LIKE '$dest'";
 
     $data = mysqli_query($conn, $qry)
         or die("Query Not Fired :  " + mysqli_error($conn));
