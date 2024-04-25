@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2018 at 09:16 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.12
+-- Generation Time: Apr 25, 2024 at 11:18 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -43,7 +42,7 @@ CREATE TABLE `bus` (
   `fare` varchar(6) NOT NULL,
   `seatsAvailable` int(5) NOT NULL,
   `noOfBookings` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `bus`
@@ -149,7 +148,7 @@ CREATE TABLE `busbookings` (
   `origin` varchar(50) NOT NULL,
   `destination` varchar(50) NOT NULL,
   `passengers` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `busbookings`
@@ -212,7 +211,7 @@ CREATE TABLE `cabbookings` (
   `origin` varchar(30) NOT NULL,
   `destination` varchar(30) NOT NULL,
   `carID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `cabbookings`
@@ -244,7 +243,7 @@ CREATE TABLE `cabdrivers` (
   `driverName` varchar(50) NOT NULL,
   `driverPhone` varchar(20) NOT NULL,
   `driverRating` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `cabdrivers`
@@ -271,7 +270,7 @@ CREATE TABLE `cabs` (
   `time` int(10) NOT NULL,
   `originCode` varchar(10) NOT NULL,
   `destinationCode` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `cabs`
@@ -295,7 +294,7 @@ CREATE TABLE `flightbookings` (
   `destination` varchar(50) NOT NULL,
   `passengers` int(10) NOT NULL,
   `type` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `flightbookings`
@@ -423,7 +422,7 @@ CREATE TABLE `flights` (
   `destination_code` varchar(10) NOT NULL,
   `refundable` varchar(20) NOT NULL,
   `noOfBookings` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `flights`
@@ -1993,7 +1992,7 @@ CREATE TABLE `hotelbookings` (
   `date` varchar(100) NOT NULL,
   `username` varchar(50) NOT NULL,
   `cancelled` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `hotelbookings`
@@ -2065,7 +2064,7 @@ CREATE TABLE `hotels` (
   `laundry` varchar(5) NOT NULL,
   `cafe` varchar(5) NOT NULL,
   `mainImage` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `hotels`
@@ -2178,6 +2177,30 @@ INSERT INTO `hotels` (`hotelID`, `hotelName`, `city`, `locality`, `stars`, `rati
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `package`
+--
+
+CREATE TABLE `package` (
+  `id` int(200) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `days` int(200) NOT NULL,
+  `people` int(200) NOT NULL,
+  `train` varchar(200) NOT NULL,
+  `hotel` varchar(200) NOT NULL,
+  `cost` int(200) NOT NULL,
+  `img` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `package`
+--
+
+INSERT INTO `package` (`id`, `name`, `days`, `people`, `train`, `hotel`, `cost`, `img`) VALUES
+(1, 'Shimla', 5, 3, 'Rajdhani', 'The Oberoi', 33000, 'https://media.easemytrip.com/media/Blog/India/637915846722669356/637915846722669356B5c7WW.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `trainbookings`
 --
 
@@ -2189,7 +2212,7 @@ CREATE TABLE `trainbookings` (
   `origin` varchar(50) NOT NULL,
   `destination` varchar(50) NOT NULL,
   `passengers` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `trainbookings`
@@ -2244,7 +2267,7 @@ CREATE TABLE `trains` (
   `priceChairCarAC` varchar(20) NOT NULL,
   `runsOn` varchar(50) NOT NULL,
   `noOfBookings` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `trains`
@@ -2285,19 +2308,15 @@ CREATE TABLE `users` (
   `City` varchar(30) NOT NULL,
   `State` varchar(30) NOT NULL,
   `Date` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`UserID`, `FullName`, `EMail`, `Phone`, `Username`, `Password`, `AddressLine1`, `AddressLine2`, `City`, `State`, `Date`) VALUES
-(3, 'Joydeep', 'a@a.l', '888877', 'joydeepdevnath', '$2a$08$OQE8pU0zwvnXnH3p.GdNi.SJ35fojL.01xuzC8nBw87Mcy8I.ZvA2', 'apple', 'apple', 'apple', 'apple', 'Saturday 30th of September 2017 at 12:10:57 AM'),
-(4, 'Joydeep', 'a@a.d', '', 'joydeepguwahati', '$2a$08$QsajBgY35..UrCFX2XRycOaNLsWKqgq6tRJ.NQEeP/XOdkCTrT/dW', '', '', '', '', 'Saturday 30th of September 2017 at 04:44:50 PM'),
-(13, 'Rajdeep Dev Nath', 'devnathrajdeep13@outlook.com', '', 'RajdeepDevNath', '$2a$08$EJdC0tCxWl0NYYgm0P0Jveg0dzjRBf/f1vM.yyoM5MV87SIfd44C6', '26, Lokenath path', 'Lalganesh', 'Guwahati', 'Assam', 'Sunday 1st of October 2017 at 07:38:43 PM'),
-(15, 'Joydeep Dev Nath', 'joydeep@gmail.com', '+918011496543', 'joydeep', '$2a$08$9tNybQVjI4FCse4FzBGtY.VSXzSL6V7icIvbOhIeaJ8mnkdjLg6DC', 'Lalganesh', 'Lokhra Road', 'Guwahati', 'Assam', 'Monday 2nd of October 2017 at 12:33:35 AM'),
-(16, 'holika', 'holika@kar.ki', '00000', 'holika', '$2a$08$E47nQqO7IyzVAXgzgUsn8uycjjUQFMNqg4xnQccJJdD5QIqOnBsIe', 'a', 'b', 'shillong', 'mg', 'Wednesday 25th of October 2017 at 09:50:46 AM'),
-(17, '', '', '', '', '$2a$08$PwXWUru6s7yGkik7aS3P.OYgnVc2dC.aS9AbtjAjjQLRpfWELD1pe', '', '', '', '', 'Monday 30th of October 2017 at 12:56:20 PM');
+(17, '', '', '', '', '$2a$08$PwXWUru6s7yGkik7aS3P.OYgnVc2dC.aS9AbtjAjjQLRpfWELD1pe', '', '', '', '', 'Monday 30th of October 2017 at 12:56:20 PM'),
+(18, 'Rakshanda Anil Giri', 'rakshandagiri123@gmail.com', '9156445573', 'Rakzz', '$2a$08$UYHf8CalF30ouNlVNG587.SWpkonwzxUP5g2hWyyk9srEtVT9BbVq', ' no. 3, Mahabal road', 'dc', 'Jalgaon', 'Maharashtra', 'Friday 26th of April 2024 at 01:40:52 AM');
 
 --
 -- Indexes for dumped tables
@@ -2358,6 +2377,12 @@ ALTER TABLE `hotels`
   ADD PRIMARY KEY (`hotelID`);
 
 --
+-- Indexes for table `package`
+--
+ALTER TABLE `package`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `trainbookings`
 --
 ALTER TABLE `trainbookings`
@@ -2416,6 +2441,12 @@ ALTER TABLE `hotelbookings`
   MODIFY `bookingID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
+-- AUTO_INCREMENT for table `package`
+--
+ALTER TABLE `package`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `trainbookings`
 --
 ALTER TABLE `trainbookings`
@@ -2425,7 +2456,7 @@ ALTER TABLE `trainbookings`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `UserID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
